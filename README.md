@@ -56,12 +56,13 @@ import os
 We will be measuring accuracy and loss of the model predictions:
 
 Goal 1: 90% accuracy
+
 Goal 2: Less than 1.0 loss
 
 
-### Can a machine correctly classify food images?
+## Can a machine correctly classify food images?
 
-This project began with great ambition and quickly had to humble itself after spending 2 entire days running one very large dataset through a model which sadly achieved just 9% accuracy. It began as a food identifier for a dataset with 101 classes with 1000 images in each class for a total of 101,000 images. The images in the dataset are not high quality, and are mostly taken on phones, as they would if this was being used in an app. In order to figure out how to get a better score on our entire dataset, we decided to start much smaller and with a subset of classes and go from there.
+This project began with great ambition and quickly had to humble itself after spending two entire days running one very large dataset through a model which sadly achieved just 9% accuracy. It began as a food identifier for a dataset with 101 classes with 1000 images in each class for a total of 101,000 images. The images in the dataset are not high quality, and are mostly taken on phones, as they would if this was being used in an app. In order to figure out how to get a better score on our entire dataset, we decided to start much smaller and with a subset of classes and go from there.
 
 ## EDA
 
@@ -102,8 +103,8 @@ Here are our loss and accuracy using the model without data augmentation:
 
 And here are our loss and accuracy  using our data augmentation model:
 
-![desserts model loss after augmentation](images/X_loss_dessert 100.png)
-![desserts model accuracy after augmentation](images/X_accuracy_dessert 100.png)
+![desserts model loss after augmentation](images/X_loss_dessert_100.png)
+![desserts model accuracy after augmentation](images/X_accuracy_dessert_100.png)
 
 Here are our predictions on 9 random images from our dataset using the model without data augmentation:
 
