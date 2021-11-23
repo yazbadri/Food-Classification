@@ -1,3 +1,5 @@
+[Download the Food-5k dataset here](https://drive.google.com/drive/folders/1sDgJysN8W8Q0WF2OruRpDZmoSUlwH7Od?usp=sharing)
+
 # Food Classifier CNN
 
 ### Can a machine correctly classify food images?
