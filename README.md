@@ -12,7 +12,7 @@
 
 # Problem Statement
 
-In this project, we will be creating a neural network model to try to correctly classify food images.
+AS AI GETS MORE ADVANCED, WE HAVE MORE USES FOR ROBOTICS THAN EVER BEFORE. THERE ARE MANY POTENTIAL USES FOR AI & ROBOTICS IN THE FOOD INDUSTRY, SO IN THIS PROJECT WE WILL BE USING MACHINE LEARNING WITH NEURAL NETWORKS TO PREDICT THE FOOD IN IMAGES.
 
 ## Datasets used:
 
@@ -22,25 +22,25 @@ In this project, we will be creating a neural network model to try to correctly 
 
 ## Libraries used:
 
-import pandas as pd
-import numpy as np
-from numpy.random import seed
+- import pandas as pd
+- import numpy as np
+- from numpy.random import seed
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+- from sklearn.preprocessing import StandardScaler
+- from sklearn.model_selection import train_test_split
+- from sklearn.metrics import accuracy_score
 
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import Model, layers
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import (Dense, Dropout, Flatten, Conv2D,
+- import tensorflow as tf
+- from tensorflow import keras
+- from tensorflow.keras import Model, layers
+- from tensorflow.keras.models import Sequential
+- from tensorflow.keras.layers import (Dense, Dropout, Flatten, Conv2D,
                                      SeparableConv2D, ReLU, MaxPooling2D, Add, Input, BatchNormalization, MaxPool2D, GlobalAveragePooling2D
-from tensorflow.keras.optimizers import Adam, SGD, RMSprop
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras.applications.vgg16 import VGG16, decode_predictions, preprocess_input
-from tensorflow.keras.applications.xception import Xception, decode_predictions, preprocess_input
+- from tensorflow.keras.optimizers import Adam, SGD, RMSprop
+- from tensorflow.keras.preprocessing import image
+- from tensorflow.keras.callbacks import EarlyStopping
+- from tensorflow.keras.applications.vgg16 import VGG16, decode_predictions, preprocess_input
+- from tensorflow.keras.applications.xception import Xception, decode_predictions, preprocess_input
 
 
 from PIL import Image
@@ -96,21 +96,21 @@ Here is an example of data augmentation:
 
 Next, we wanted to use a larger subset to train our model on, so we used a subset we called Desserts, which contained 20 classes for 20,000 total images. We ran the same models on them, but even after making several changes to the parameters, our best scores were 28% for the Xception model without data augmentation and 63% for the model with data augmentation. It seems the more classes a dataset has, the more difficult it is to train the model and get a good model performance.
 
-Here are our loss and accuracy using the model without data augmentation:
+** Here are our loss and accuracy using the model without data augmentation:
 
 ![desserts model loss before augmentation](images/X_loss_dessert_1.png)
 ![desserts model accuracy before augmentation](images/X_accuracy_dessert_1.png)
 
-And here are our loss and accuracy  using our data augmentation model:
+** And here are our loss and accuracy  using our data augmentation model:
 
 ![desserts model loss after augmentation](images/X_loss_dessert_100.png)
 ![desserts model accuracy after augmentation](images/X_accuracy_dessert_100.png)
 
-Here are our predictions on 9 random images from our dataset using the model without data augmentation:
+** Here are our predictions on 9 random images from our dataset using the model without data augmentation:
 
 ![desserts preds without data augmentation](images/desserts_preds_before_augmentation.png)
 
-And here are those same images with predictions using our data augmentation model:
+** And here are those same images with predictions using our data augmentation model:
 
 ![desserts preds with data augmentation](images/desserts_preds_after_augmentation_100.png)
 
@@ -120,15 +120,15 @@ And here are those same images with predictions using our data augmentation mode
 After running numerous different CNN models with different hyperparameters and different amounts of images and classes, we've learned the following:
 
 Preprocessing:
-Image data should be preprocessed before modeling
-Images should be resized to each be the same size and shape
-Turning the images into Numpy arrays and normalizing the data points to be between 0-1 minimizes the data sizes going into the models which speeds up the model runtime without losing performance.
-Data augmentation greatly boosts the model performance, since it adds many more images for the model to train on.
+- Image data should be preprocessed before modeling
+- Images should be resized to each be the same size and shape
+- Turning the images into Numpy arrays and normalizing the data points to be between 0-1 minimizes the data sizes going into the models which speeds up the model runtime without losing performance.
+- Data augmentation greatly boosts the model performance, since it adds many more images for the model to train on.
 Models
-Using a model with pre-trained weights such as Xception helps boost model performance without as much time trying many different layers with a custom model.
-Hyper-parameters should match the type of data and number of classes being predicted. We used the 'softmax' activator in our final layer which works best for predicting more than 2 classes, and we used SGD for our optimizer which we found gave us the best and most reliable model performance.
-Using an optimizer with a scheduled learning rate helps boost performance as the learning rate is minimized exponentially over the steps of the model.
-The more classes there are to predict, the more difficult it will be for the model to perform well since the data is basically diluted. The more classes there are, the more images you will need in each class to make up for the dilution.
+- Using a model with pre-trained weights such as Xception helps boost model performance without as much time trying many different layers with a custom model.
+- Hyper-parameters should match the type of data and number of classes being predicted. We used the 'softmax' activator in our final layer which works best for predicting more than 2 classes, and we used SGD for our optimizer which we found gave us the best and most reliable model performance.
+- Using an optimizer with a scheduled learning rate helps boost performance as the learning rate is minimized exponentially over the steps of the model.
+- The more classes there are to predict, the more difficult it will be for the model to perform well since the data is basically diluted. The more classes there are, the more images you will need in each class to make up for the dilution.
 
 ## Conclusions
 Our initial model with just 2 classes was fairly quickly able to get 100% accuracy on both training and testing using a fairly simple CNN. After changing our data to a dataset with 4 classes, we were able to get up to 100% accuracy using an Xception CNN model with data augmentation. At 20 classes, we dropped to about 28% accuracy using the same model without data augmentation and 63% with data augmentation. Data augmentation not only greatly improved the performance of the models, it also greatly reduced the overfitting problem we had with the models without augmentation.
